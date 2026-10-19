@@ -19,27 +19,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elmir.dev"),
-  title: "ELMIR.DEV | Премиальные сайты на Next.js и воронки трафика под ключ в Батуми",
+  title: "VORTEX FITNESS | Премиальный фитнес-клуб в Батуми",
   description:
-    "Разработка сверхбыстрых веб-платформ на Next.js, комплексная упаковка соцсетей, запуск рекламы и 24/7 сопровождение бизнеса в Батуми. Сайты, которые окупаются с первых клиентов.",
+    "Премиальный фитнес-клуб VORTEX FITNESS в Батуми. Профессиональные тренажеры, кардио-зона с панорамным видом, персональные тренировки, бар спортивного питания и гибкие тарифы.",
   keywords: [
-    "разработка сайтов батуми",
-    "создание сайтов батуми",
-    "next js разработчик грузия",
-    "web developer batumi",
-    "лидогенерация батуми",
-    "маркетинг батуми",
-    "премиум сайты batumi",
-    "elmir dev",
+    "VORTEX FITNESS",
+    "фитнес клуб батуми",
+    "тренажерный зал батуми",
+    "gym batumi",
+    "fitness batumi",
+    "персональный тренер батуми",
+    "спортзал батуми",
   ],
-  authors: [{ name: "Elmir", url: "https://elmir.dev" }],
   openGraph: {
-    title: "ELMIR.DEV | Сайты и трафик под ключ в Батуми",
+    title: "VORTEX FITNESS | Премиальный фитнес-клуб в Батуми",
     description:
-      "Сверхбыстрые Next.js сайты, упаковка Instagram/Telegram и окупаемый трафик без технической головной боли.",
-    url: "https://elmir.dev",
-    siteName: "ELMIR.DEV Portfolio",
+      "Современное пространство для тренировок в Батуми. Зона свободных весов, кардио, фитнес-бар и профессиональные наставники.",
+    siteName: "VORTEX FITNESS Batumi",
     locale: "ru_RU",
     type: "website",
   },
@@ -55,7 +51,15 @@ export default function RootLayout({
       lang="ru"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-[#07090E] text-[#F3F4F6] selection:bg-emerald-500 selection:text-black">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-[#07090E] text-[#F3F4F6] selection:bg-amber-500 selection:text-black">
         {children}
       </body>
     </html>

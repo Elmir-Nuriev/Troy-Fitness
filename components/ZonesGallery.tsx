@@ -81,11 +81,11 @@ export const ZonesGallery: React.FC<ZonesGalleryProps> = ({ currentLang, onOpenB
             <div className="space-y-4 pt-4 border-t border-white/10">
               <div className="flex items-center gap-3 text-sm text-zinc-300">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>Оборудование европейского стандарта</span>
+                <span>{t.zones.feature1}</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-zinc-300">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>Идеальная чистота и дезинфекция</span>
+                <span>{t.zones.feature2}</span>
               </div>
             </div>
 
@@ -93,7 +93,7 @@ export const ZonesGallery: React.FC<ZonesGalleryProps> = ({ currentLang, onOpenB
               onClick={() => onOpenBooking(activeZone.title)}
               className="mt-8 flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
             >
-              <span>Попробовать в этой зоне</span>
+              <span>{t.zones.tryZone}</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>

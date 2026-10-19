@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -26,7 +27,7 @@
   body {
     background-color: #07090e;
     color: #f3f4f6;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: var(--font-geist-sans), "Noto Sans Georgian", "Plus Jakarta Sans", system-ui, sans-serif; font-feature-settings: "rlig" 1, "calt" 1; text-rendering: optimizeLegibility;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
@@ -141,4 +142,41 @@
 
 .animate-float-delayed {
   animation: floatDelayed 6s infinite ease-in-out;
+}
+
+
+/* Enhanced Georgian Typography & Word Layout */
+.lang-ka {
+  font-family: 'Noto Sans Georgian', 'FiraGO', 'BPG Nino Mtavruli', system-ui, -apple-system, sans-serif !important;
+}
+
+.lang-ka h1,
+.lang-ka h2,
+.lang-ka h3,
+.lang-ka h4 {
+  letter-spacing: 0.015em !important;
+  line-height: 1.25 !important;
+}
+
+.lang-ka .tracking-tight,
+.lang-ka .tracking-tighter {
+  letter-spacing: 0.01em !important;
+}
+
+.lang-ka .uppercase {
+  text-transform: none !important;
+  letter-spacing: 0.025em !important;
+  font-weight: 700;
+}
+
+/* Turkish Typography Refinements */
+[data-lang="tr"] {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+[data-lang="tr"] h1,
+[data-lang="tr"] h2,
+[data-lang="tr"] h3 {
+  letter-spacing: -0.015em;
 }

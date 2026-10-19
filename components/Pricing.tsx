@@ -67,7 +67,7 @@ export const Pricing: React.FC<PricingProps> = ({ currentLang, onOpenBooking }) 
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {t.pricing.plans.map((plan, idx) => {
             const isHit = plan.popular;
 
@@ -85,7 +85,7 @@ export const Pricing: React.FC<PricingProps> = ({ currentLang, onOpenBooking }) 
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
                     <span className="px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-black font-extrabold text-[11px] tracking-wider uppercase shadow-md shadow-amber-500/30 flex items-center gap-1">
                       <Sparkles className="w-3 h-3" />
-                      {plan.badge || "ХИТ ПРОДАЖ"}
+                      {plan.badge || t.pricing.defaultBadge}
                     </span>
                   </div>
                 )}
@@ -93,7 +93,7 @@ export const Pricing: React.FC<PricingProps> = ({ currentLang, onOpenBooking }) 
                 <div>
                   <div className="mb-4">
                     <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
-                    <p className="text-xs text-zinc-400 min-h-[32px]">{plan.desc}</p>
+                    <p className="text-xs text-zinc-400 min-h-[44px] leading-relaxed">{plan.desc}</p>
                   </div>
 
                   {/* Price Block */}
@@ -123,9 +123,9 @@ export const Pricing: React.FC<PricingProps> = ({ currentLang, onOpenBooking }) 
 
                 <button
                   onClick={() => onOpenBooking(plan.name)}
-                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all cursor-pointer ${
+                  className={`w-full py-3.5 rounded-full font-extrabold text-xs uppercase tracking-wider transition-all cursor-pointer ${
                     isHit
-                      ? "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black shadow-lg shadow-amber-500/30 hover:scale-[1.02]"
+                      ? "bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-500 text-black shadow-lg shadow-amber-500/30 hover:scale-[1.02]"
                       : "bg-white/10 hover:bg-white/15 text-white border border-white/15 hover:border-amber-400/40"
                   }`}
                 >
@@ -140,15 +140,15 @@ export const Pricing: React.FC<PricingProps> = ({ currentLang, onOpenBooking }) 
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center justify-around gap-6 text-xs text-zinc-400">
           <div className="flex items-center gap-2">
             <CreditCard className="w-4 h-4 text-amber-400" />
-            <span>Оплата картой Visa / Mastercard / Apple Pay / Наличными</span>
+            <span>{t.pricing.guarantee1}</span>
           </div>
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 text-amber-400" />
-            <span>Официальный договор, чеки и прозрачные условия заморозки</span>
+            <span>{t.pricing.guarantee2}</span>
           </div>
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>Без скрытых списаний и навязанных услуг</span>
+            <span>{t.pricing.guarantee3}</span>
           </div>
         </div>
       </div>

@@ -62,7 +62,7 @@ export const ContactMap: React.FC<ContactMapProps> = ({ currentLang }) => {
                     +995 514 03 07 09
                   </a>
                   <p className="text-xs text-zinc-400 mt-1">
-                    Звонки и сообщения в WhatsApp / Telegram
+                    {t.contact.phoneNote}
                   </p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export const ContactMap: React.FC<ContactMapProps> = ({ currentLang }) => {
                     {t.contact.hoursValue}
                   </p>
                   <p className="text-xs text-emerald-400 font-semibold mt-1">
-                    Без перерывов и праздничных выходных
+                    {t.contact.hoursNote}
                   </p>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export const ContactMap: React.FC<ContactMapProps> = ({ currentLang }) => {
                 </h4>
                 <div className="flex flex-wrap gap-2.5">
                   <a
-                    href="https://www.facebook.com/t.roa.pit.nesi/"
+                    href="https://www.facebook.com/vortex.fitness.batumi/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white transition-all hover:border-amber-400/40"
@@ -101,7 +101,7 @@ export const ContactMap: React.FC<ContactMapProps> = ({ currentLang }) => {
                     <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
                   </a>
                   <a
-                    href="https://www.instagram.com/troy_fitness_batumi/"
+                    href="https://www.instagram.com/vortex_fitness_batumi/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white transition-all hover:border-amber-400/40"
@@ -148,7 +148,7 @@ export const ContactMap: React.FC<ContactMapProps> = ({ currentLang }) => {
           {/* Interactive Map Embed */}
           <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative min-h-[420px] bg-zinc-900">
             <iframe
-              title="Troy Fitness Batumi Map"
+              title="Vortex Fitness Batumi Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.844781442127!2d41.6111!3d41.6247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4067861962e7a3ab%3A0x6b1a37c89f5bc3e1!2sDavid%20Agmashenebeli%20St%202g%2C%20Batumi!5e0!3m2!1sen!2sge!4v1700000000000!5m2!1sen!2sge"
               width="100%"
               height="100%"
@@ -161,14 +161,14 @@ export const ContactMap: React.FC<ContactMapProps> = ({ currentLang }) => {
             {/* Custom Location Overlay Card on Map */}
             <div className="absolute top-4 left-4 bg-zinc-950/90 backdrop-blur-md border border-white/15 p-3.5 rounded-2xl shadow-xl max-w-xs hidden sm:block">
               <span className="text-xs font-black text-amber-400 tracking-wider uppercase block">
-                TROY FITNESS
+                VORTEX FITNESS
               </span>
               <p className="text-xs text-white font-medium mt-0.5">
-                ул. Давида Агмашенебели 2г, Батуми
+                {t.contact.mapAddress}
               </p>
               <div className="mt-2 flex items-center gap-1.5 text-[11px] text-emerald-400 font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                <span>Открыто до 23:45</span>
+                <span>{t.nav.openStatus}</span>
               </div>
             </div>
           </div>

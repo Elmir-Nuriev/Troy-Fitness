@@ -98,7 +98,7 @@ export const GymStatus: React.FC<GymStatusProps> = ({ currentLang }) => {
               </div>
               <div>
                 <span className="text-xs text-zinc-400 font-medium block">
-                  {selectedHour !== null ? `Прогноз на ${currentSlot.label}` : t.status.now}:
+                  {selectedHour !== null ? `${t.status.forecastFor} ${currentSlot.label}` : t.status.now}:
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-black text-white">
@@ -120,7 +120,7 @@ export const GymStatus: React.FC<GymStatusProps> = ({ currentLang }) => {
                 {t.status.hoursLegend}
               </span>
               <span className="text-zinc-500 text-[11px]">
-                Нажмите на столбец для просмотра
+                {t.status.clickBarHint}
               </span>
             </div>
 
@@ -172,21 +172,21 @@ export const GymStatus: React.FC<GymStatusProps> = ({ currentLang }) => {
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 <span>
-                  <strong>Идеальное время:</strong> Утренние часы (08:00 – 12:00) и после 21:30.
+                  <strong>{t.status.idealTimeTitle}</strong> {t.status.idealTimeDesc}
                 </span>
               </div>
               <div className="flex items-center gap-4 text-[11px]">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  До 40% (Свободно)
+                  {t.status.legendComfort}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                  40–75% (Оптимально)
+                  {t.status.legendOptimal}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                  75%+ (Пик)
+                  {t.status.legendPeak}
                 </span>
               </div>
             </div>

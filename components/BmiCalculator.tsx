@@ -35,10 +35,10 @@ export const BmiCalculator: React.FC<BmiCalculatorProps> = ({ currentLang, onOpe
     goal === "lose" ? tdee - 450 : goal === "muscle" ? tdee + 350 : tdee;
 
   const getBmiCategory = (val: number) => {
-    if (val < 18.5) return { label: "Дефицит массы", color: "text-blue-400", bg: "bg-blue-500/20" };
-    if (val < 25) return { label: "Нормальный вес", color: "text-emerald-400", bg: "bg-emerald-500/20" };
-    if (val < 30) return { label: "Избыточный вес", color: "text-amber-400", bg: "bg-amber-500/20" };
-    return { label: "Ожирение", color: "text-rose-400", bg: "bg-rose-500/20" };
+    if (val < 18.5) return { label: t.calculator.underweight, color: "text-blue-400", bg: "bg-blue-500/20" };
+    if (val < 25) return { label: t.calculator.normalWeight, color: "text-emerald-400", bg: "bg-emerald-500/20" };
+    if (val < 30) return { label: t.calculator.overweight, color: "text-amber-400", bg: "bg-amber-500/20" };
+    return { label: t.calculator.obesity, color: "text-rose-400", bg: "bg-rose-500/20" };
   };
 
   const bmiCat = getBmiCategory(bmi);
@@ -194,18 +194,18 @@ export const BmiCalculator: React.FC<BmiCalculatorProps> = ({ currentLang, onOpe
               {/* BMR Output */}
               <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/5 border border-white/5 mb-3">
                 <span className="text-xs text-zinc-400 font-medium">{t.calculator.bmrLabel}</span>
-                <span className="text-lg font-bold text-white">{bmr} ккал</span>
+                <span className="text-lg font-bold text-white">{bmr} {t.calculator.kcal}</span>
               </div>
 
               {/* Target Calories */}
               <div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/20 to-amber-500/5 border border-amber-500/30 mb-4">
                 <span className="text-xs text-amber-300 font-bold block mb-1 flex items-center gap-1">
                   <Flame className="w-3.5 h-3.5 text-amber-400" />
-                  Рекомендуемая норма калорий:
+                  {t.calculator.recommendedCalories}
                 </span>
                 <div className="flex items-baseline gap-2">
                   <span className="text-3xl font-black text-white">{targetCalories}</span>
-                  <span className="text-xs text-zinc-400">ккал / сутки для вашей цели</span>
+                  <span className="text-xs text-zinc-400">{t.calculator.kcalPerDay}</span>
                 </div>
               </div>
 
@@ -213,24 +213,24 @@ export const BmiCalculator: React.FC<BmiCalculatorProps> = ({ currentLang, onOpe
               <div className="text-xs text-zinc-400 leading-relaxed mb-6">
                 {goal === "lose" && (
                   <p>
-                    Для качественного жиросжигания рекомендуем 3 силовые тренировки в неделю + 20-30 минут кардио в пульсовой зоне 120-140 bpm.
+                    {t.calculator.recLose}
                   </p>
                 )}
                 {goal === "muscle" && (
                   <p>
-                    Для гипертрофии мышц рекомендуем прогрессивную силовую нагрузку 3-4 раза в неделю с акцентом на базовые упражнения и достаточное потребление белка (1.8-2г/кг).
+                    {t.calculator.recMuscle}
                   </p>
                 )}
                 {goal === "maintain" && (
                   <p>
-                    Для поддержания тонуса и здоровья рекомендуем гармоничное сочетание силовых сетов, функционального тренинга и растяжки 2-3 раза в неделю.
+                    {t.calculator.recMaintain}
                   </p>
                 )}
               </div>
             </div>
 
             <button
-              onClick={() => onOpenBooking(`План питания и тренировок (${goal}, ИМТ ${bmi})`)}
+              onClick={() => onOpenBooking(`${t.calculator.bookingServicePrefix} (${goal}, BMI ${bmi})`)}
               className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 transition-all cursor-pointer"
             >
               <span>{t.calculator.claimBtn}</span>

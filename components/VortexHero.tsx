@@ -18,8 +18,8 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
       {/* Background Hero Image with Overlays */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-gym.jpg"
-          alt="Troy Fitness Gym Batumi"
+          src="/images/vortex-hero.jpg"
+          alt="Vortex Fitness Gym Batumi"
           fill
           priority
           className="object-cover object-center scale-105 animate-pulse-glow"
@@ -44,17 +44,21 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs text-zinc-300">
               <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
               <span className="font-bold text-white">4.9</span>
-              <span className="text-zinc-400">/ 5.0 Google & FB</span>
+              <span className="text-zinc-400">{t.hero.ratingPlatform}</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs text-zinc-300">
               <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              <span>Батуми, Агмашенебели 2г</span>
+              <span>{t.hero.addressBadge}</span>
             </div>
           </div>
 
           {/* Epic Main Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className={`text-4xl sm:text-6xl lg:text-7xl font-black text-white mb-6 ${
+            currentLang === "ka"
+              ? "leading-[1.2] tracking-normal"
+              : "leading-[1.08] tracking-tight"
+          }`}>
             <span>{t.hero.titleStart} </span>
             <span className="text-gold-gradient drop-shadow-sm">{t.hero.titleMiddle} </span>
             <br className="hidden sm:block" />
@@ -67,10 +71,10 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
           </p>
 
           {/* Call to Actions */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 mb-14">
             <a
               href="#pricing"
-              className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-600 text-black font-extrabold text-base shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all"
+              className="flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-600 text-black font-black text-base uppercase tracking-wider shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all"
             >
               <span>{t.hero.ctaPrimary}</span>
               <ArrowRight className="w-5 h-5" />
@@ -78,18 +82,18 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
 
             <button
               onClick={() => onOpenBooking(t.hero.ctaSecondary)}
-              className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white font-bold text-base transition-all hover:scale-[1.02] cursor-pointer"
+              className="flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 backdrop-blur-md text-white font-bold text-base transition-all hover:scale-[1.02] cursor-pointer"
             >
               <ShieldCheck className="w-5 h-5 text-amber-400" />
               <span>{t.hero.ctaSecondary}</span>
             </button>
 
             <a
-              href="https://wa.me/995514030709?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20тренировках%20в%20Troy%20Fitness%20Batumi"
+              href={`https://wa.me/995514030709?text=${encodeURIComponent(t.hero.waMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-semibold text-base transition-all"
-              title="Написать в WhatsApp"
+              className="flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-semibold text-base transition-all"
+              title={t.hero.waChatTooltip}
             >
               <MessageCircle className="w-5 h-5" />
               <span className="sm:hidden lg:inline">WhatsApp</span>
@@ -97,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenBooking }) => {
           </div>
 
           {/* Trust Highlights Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8 pt-8 border-t border-white/10">
             <div className="flex flex-col">
               <span className="text-2xl sm:text-3xl font-black text-white text-gold-gradient">
                 {t.hero.stats.space}

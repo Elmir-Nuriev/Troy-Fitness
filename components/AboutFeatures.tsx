@@ -39,11 +39,11 @@ export const AboutFeatures: React.FC<AboutFeaturesProps> = ({ currentLang }) => 
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {t.about.items.map((item, idx) => (
             <div
               key={idx}
-              className="bg-glass-card rounded-2xl p-7 border border-white/10 hover:border-amber-500/30 transition-all duration-300 group hover:-translate-y-1 shadow-lg"
+              className="bg-glass-card rounded-2xl p-7 sm:p-8 border border-white/10 hover:border-amber-500/30 transition-all duration-300 group hover:-translate-y-1 shadow-lg flex flex-col justify-between"
             >
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all">
                 {icons[idx]}
@@ -66,19 +66,19 @@ export const AboutFeatures: React.FC<AboutFeaturesProps> = ({ currentLang }) => 
             </div>
             <div>
               <h4 className="text-lg font-bold text-white">
-                Первое посещение без стресса и очередей
+                {t.about.bannerTitle}
               </h4>
               <p className="text-sm text-zinc-400">
-                Дежурный тренер бесплатно познакомит вас с залом и техникой безопасности
+                {t.about.bannerDesc}
               </p>
             </div>
           </div>
 
           <a
             href="#pricing"
-            className="whitespace-nowrap px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm transition-all shadow-lg shadow-amber-500/20"
+            className="whitespace-nowrap px-7 py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-sm uppercase tracking-wider transition-all shadow-lg shadow-amber-500/20"
           >
-            Узнать стоимость абонементов
+            {t.about.bannerBtn}
           </a>
         </div>
       </div>

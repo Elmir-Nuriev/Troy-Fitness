@@ -45,7 +45,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ currentLang }) => {
                 ))}
               </div>
               <span className="text-xs text-zinc-400 font-medium">
-                Более 240 подтвержденных отзывов
+                {t.reviews.totalCount}
               </span>
             </div>
           </div>
@@ -66,7 +66,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ currentLang }) => {
                     ))}
                   </div>
                   <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-white/5 text-zinc-400 font-medium">
-                    Проверенный отзыв
+                    {t.reviews.verified}
                   </span>
                 </div>
                 <p className="text-sm text-zinc-300 leading-relaxed italic mb-6">
@@ -89,24 +89,24 @@ export const Reviews: React.FC<ReviewsProps> = ({ currentLang }) => {
 
         {/* Links to social accounts */}
         <div className="mt-12 text-center flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-400">
-          <span>Смотрите больше реальных видео и отзывов:</span>
+          <span>{t.reviews.moreVideos}</span>
           <a
-            href="https://www.facebook.com/t.roa.pit.nesi/"
+            href="https://www.facebook.com/vortex.fitness.batumi/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-semibold"
           >
-            <span>Facebook (ტროა ფიტნესი)</span>
+            <span>Facebook (ვორტექს ფიტნესი)</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
           <span className="text-zinc-600">•</span>
           <a
-            href="https://www.instagram.com/troy_fitness_batumi/"
+            href="https://www.instagram.com/vortex_fitness_batumi/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 font-semibold"
           >
-            <span>Instagram (@troy_fitness_batumi)</span>
+            <span>Instagram (@vortex_fitness_batumi)</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>

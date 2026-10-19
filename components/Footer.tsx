@@ -26,15 +26,15 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
                 <Dumbbell className="w-5 h-5" />
               </div>
               <span className="text-xl font-black tracking-wider text-white">
-                TROY <span className="text-amber-400">FITNESS</span>
+                VORTEX <span className="text-amber-400">FITNESS</span>
               </span>
             </div>
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-sm">
-              Премиальный фитнес-клуб в Батуми. Профессиональное оборудование, просторный зал, кондиционирование и лучшие условия для тренировок на ул. Давида Агмашенебели 2г.
+              {t.footer.brandDesc}
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://www.facebook.com/t.roa.pit.nesi/"
+                href="https://www.facebook.com/vortex.fitness.batumi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-400 border border-white/10 flex items-center justify-center transition-all text-xs font-bold"
@@ -43,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
                 FB
               </a>
               <a
-                href="https://www.instagram.com/troy_fitness_batumi/"
+                href="https://www.instagram.com/vortex_fitness_batumi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-400 border border-white/10 flex items-center justify-center transition-all text-xs font-bold"
@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           {/* Navigation Links */}
           <div>
             <h4 className="text-xs font-black uppercase tracking-wider text-white mb-4">
-              Навигация
+              {t.footer.navTitle}
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
@@ -100,20 +100,20 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           {/* Gym Details */}
           <div>
             <h4 className="text-xs font-black uppercase tracking-wider text-white mb-4">
-              Режим работы
+              {t.footer.hoursTitle}
             </h4>
             <div className="space-y-2.5 text-xs sm:text-sm text-zinc-300">
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Пн – Вс: 08:00 – 23:45</span>
+                <span>{t.footer.hoursSchedule}</span>
               </div>
               <p className="text-xs text-zinc-400">
-                Без перерывов на обед и выходных дней.
+                {t.footer.hoursSubnote}
               </p>
               <div className="pt-2">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Открыто сегодня
+                  {t.footer.openToday}
                 </span>
               </div>
             </div>
@@ -122,12 +122,12 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
           {/* Contact Details */}
           <div>
             <h4 className="text-xs font-black uppercase tracking-wider text-white mb-4">
-              Контакты
+              {t.footer.contactTitle}
             </h4>
             <div className="space-y-3 text-xs sm:text-sm text-zinc-300">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span>Батуми, ул. Давида Агмашенебели, 2г</span>
+                <span>{t.footer.addressText}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
@@ -138,7 +138,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
               <div className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a href="https://wa.me/995514030709" className="hover:text-emerald-400">
-                  WhatsApp чат
+                  {t.footer.waChat}
                 </a>
               </div>
             </div>
@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div>
-            © {new Date().getFullYear()} TROY FITNESS Batumi (ტროა ფიტნესი). Все права защищены.
+            © {new Date().getFullYear()} VORTEX FITNESS Batumi. {t.footer.allRightsReserved}
           </div>
 
           <div className="flex items-center gap-6">
@@ -156,7 +156,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
               onClick={scrollToTop}
               className="flex items-center gap-1.5 text-zinc-400 hover:text-amber-400 transition-colors cursor-pointer"
             >
-              <span>Наверх</span>
+              <span>{t.footer.backToTop}</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>

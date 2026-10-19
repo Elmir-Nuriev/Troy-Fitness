@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Navbar } from "@/components/TroyNavbar";
-import { Hero } from "@/components/TroyHero";
+import { Navbar } from "@/components/VortexNavbar";
+import { Hero } from "@/components/VortexHero";
 import { GymStatus } from "@/components/GymStatus";
 import { AboutFeatures } from "@/components/AboutFeatures";
 import { ZonesGallery } from "@/components/ZonesGallery";
@@ -49,7 +49,7 @@ export default function Home() {
       {/* Real-time Gym Occupancy Tracker */}
       <GymStatus currentLang={currentLang} />
 
-      {/* Why Troy Fitness / Club Features */}
+      {/* Why Vortex Fitness / Club Features */}
       <AboutFeatures currentLang={currentLang} />
 
       {/* Interactive Gym Zones Showcase */}
@@ -99,7 +99,7 @@ export default function Home() {
       {/* Floating Quick WhatsApp Button */}
       <aside aria-label="Быстрый чат в WhatsApp" className="fixed bottom-6 right-6 z-40">
         <a
-          href="https://wa.me/995514030709?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20тренировках%20в%20Troy%20Fitness%20Batumi"
+          href="https://wa.me/995514030709?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20тренировках%20в%20Vortex%20Fitness%20Batumi"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold shadow-2xl shadow-emerald-500/40 hover:scale-105 transition-all group"

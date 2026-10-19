@@ -22,7 +22,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState(defaultService || t.modal.serviceTrial);
-  const [preferredTime, setPreferredTime] = useState("День (12:00 – 17:00)");
+  const [preferredTime, setPreferredTime] = useState<string>(t.modal.defaultTime);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -45,11 +45,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     }, 600);
   };
 
-  const getWhatsAppUrl = () => {
-    const text = encodeURIComponent(
-      `Здравствуйте! Меня зовут ${name || "Гость"}. Хочу записаться в Troy Fitness Batumi на: ${service}. Мой телефон: ${phone || "не указан"}. Удобное время: ${preferredTime}.`
-    );
-    return `https://wa.me/995514030709?text=${text}`;
+    const getWhatsAppUrl = () => {
+    const template = (t.modal as any).waTemplate || "Hello! My name is {name}. Service: {service}. Phone: {phone}. Time: {time}.";
+    const msg = template
+      .replace("{name}", name || t.modal.guest)
+      .replace("{service}", service)
+      .replace("{phone}", phone || t.modal.notSpecified)
+      .replace("{time}", preferredTime);
+    return `https://wa.me/995514030709?text=${encodeURIComponent(msg)}`;
   };
 
   return (
@@ -88,7 +91,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <input
                   type="text"
                   required
-                  placeholder="Ваше имя"
+                  placeholder={t.modal.namePlaceholder}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all"
@@ -119,10 +122,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   className="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-white/10 text-white text-sm focus:outline-none focus:border-amber-400"
                 >
                   <option value={t.modal.serviceTrial}>{t.modal.serviceTrial}</option>
-                  <option value="1 Месяц Безлимит (130 ₾)">1 Месяц Безлимит (130 ₾)</option>
-                  <option value="3 Месяца ХИТ (340 ₾)">3 Месяца ХИТ (340 ₾)</option>
-                  <option value="1 Год VIP (990 ₾)">1 Год VIP (990 ₾)</option>
-                  <option value="Разовое посещение (20 ₾)">Разовое посещение (20 ₾)</option>
+                  {t.modal.planOptions.map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
                   <option value={t.modal.serviceCoach}>{t.modal.serviceCoach}</option>
                   {defaultService && <option value={defaultService}>{defaultService}</option>}
                 </select>
@@ -133,7 +135,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   {t.modal.time}
                 </label>
                 <div className="grid grid-cols-3 gap-2 text-xs">
-                  {["Утро (08-12)", "День (12-17)", "Вечер (17-23)"].map((time) => (
+                  {t.modal.times.map((time) => (
                     <button
                       key={time}
                       type="button"
@@ -168,13 +170,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="pt-2 text-center">
                 <span className="text-xs text-zinc-400">{t.modal.orDirectWa}</span>
                 <a
-                  href="https://wa.me/995514030709?text=Здравствуйте!%20Хочу%20записаться%20на%20тренировку%20в%20Troy%20Fitness%20Batumi"
+                  href={`https://wa.me/995514030709?text=${encodeURIComponent(t.hero.waMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-2 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold transition-all"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Открыть чат WhatsApp (+995 514 03 07 09)</span>
+                  <span>{t.modal.openWa}</span>
                 </a>
               </div>
             </form>
@@ -193,15 +195,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
             <div className="p-4 rounded-xl bg-white/5 border border-white/10 mb-6 text-left text-xs space-y-1.5">
               <div className="flex justify-between">
-                <span className="text-zinc-400">Имя:</span>
+                <span className="text-zinc-400">{t.modal.summaryName}</span>
                 <span className="text-white font-semibold">{name}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-zinc-400">Телефон:</span>
+                <span className="text-zinc-400">{t.modal.summaryPhone}</span>
                 <span className="text-white font-semibold">{phone}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-zinc-400">Услуга:</span>
+                <span className="text-zinc-400">{t.modal.summaryService}</span>
                 <span className="text-amber-400 font-semibold">{service}</span>
               </div>
             </div>
@@ -214,7 +216,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 className="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Подтвердить в WhatsApp сейчас</span>
+                <span>{t.modal.confirmWa}</span>
               </a>
 
               <button
